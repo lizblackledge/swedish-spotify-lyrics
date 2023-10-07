@@ -1,20 +1,20 @@
-const { app, BrowserWindow } = require('electron')
-const url = require('url')
-const path = require('path')
+const { app, BrowserWindow } = require('electron');
+const url = require('url');
+const path = require('path');
 
 function createMainWindow() {
   const mainWindow = new BrowserWindow({
-    title: 'Swedish App', 
+    title: 'Swedish App',
     width: 1000,
-    height: 600
+    height: 600,
   });
 
   const startUrl = url.format({
     pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file'
-  })
+    protocol: 'file',
+  });
 
-  mainWindow.loadURL(startUrl)
+  mainWindow.loadURL('http://localhost:3000');
 }
 
-app.whenReady().then(createMainWindow)
+app.whenReady().then(createMainWindow);
