@@ -11,6 +11,7 @@
   "author": "lizblackledge",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^16.3.1",
     "electron": "^26.3.0"
   }
 }
