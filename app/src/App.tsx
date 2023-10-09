@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
+import Player from './Components/Player';
+// import Login from './Components/Login';
 
 function App() {
   const [accessToken, setAccessToken] = useState('');
@@ -14,16 +16,21 @@ function App() {
     };
     try {
       fetch('https://accounts.spotify.com/api/token', authParams)
-      .then(result => result.json())
-      .then(data => setAccessToken(data.access_token))
-    } catch(e) {
-      console.log('error: ', e)
+        .then((result) => result.json())
+        .then((data) => setAccessToken(data.access_token));
+    } catch (e) {
+      console.log('error: ', e);
     }
-  });
+  }, []);
 
   return (
     <div className="App">
-      <h1>hejsan allihop!</h1>
+      <h1>Hejsan!</h1>
+      <h3>Today's date: {new Date(Date.now()).toLocaleDateString()}</h3>
+      {/* {accessToken === '' ? <Login /> : <Player accessToken={accessToken} />} */}
+      <Player accessToken={accessToken}/>
+      {accessToken}
+      {/* <Login /> */}
     </div>
   );
 }
